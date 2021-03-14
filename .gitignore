@@ -1,0 +1,13 @@
+# gitignore
+__pycache__
+.history
+.hypothesis/
+build/
+reports/
+.vscode
+research/
+.DS_Store
+node_modules
+*.log
+*.tgz
+.yarn/
