@@ -17,7 +17,7 @@ Differences from the official [Debian Python Image](https://github.com/docker-li
 
 - the Python3 interpreter is installed to `/python`
 
-The Dockerfile uses `debian:buster-slim` (https://hub.docker.com/_/debian/)
+The Dockerfile uses [debian:buster-slim](https://hub.docker.com/_/debian/)
 as base but this is configurable at build time using `BASE_IMAGE_NAME`
 as build argument.
 
@@ -37,10 +37,11 @@ Tested with
 
 ## Building
 
-````bash
+```bash
 docker build --tag python3:latest .
+```
 
-alternative base image:
+### Alternative base image:
 
 ```bash
     docker build --build-arg BASE_IMAGE_NAME=ubuntu:bionic --tag python3:bionic .
