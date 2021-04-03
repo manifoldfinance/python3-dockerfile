@@ -13,7 +13,6 @@ ARG VCS_REF
 ENV VCS_REF=${VCS_REF}
 
 ENV LANG=C.UTF-8 \
-    LC_ALL C.UTF-8 \
     DEBIAN_FRONTEND=noninteractive \
     PIP_NO_CACHE_DIR=true
 
