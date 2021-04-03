@@ -1,13 +1,27 @@
 # -*- coding: utf-8 -*-
-ARG BASE_IMAGE_NAME=debian:buster-slim
+ARG BASE_IMAGE_NAME=debian:buster
 
 # Intermediate build container
 FROM $BASE_IMAGE_NAME AS builder
 
 ENV PYTHON_VERSION 3.8.3
 ENV PYTHON_PIP_VERSION 20.1.1
-ENV PYTHONUNBUFFERED=1
 
+ARG BUILD_DATE
+ENV BUILD_DATE=${BUILD_DATE}
+ARG VCS_REF
+ENV VCS_REF=${VCS_REF}
+
+ENV LANG=C.UTF-8 \
+    LC_ALL C.UTF-8 \
+    DEBIAN_FRONTEND=noninteractive \
+    PIP_NO_CACHE_DIR=true
+
+ENV PYTHONDONTWRITEBYTECODE 1 \
+    PYTHONUNBUFFERED 1 \
+    PYTHONFAULTHANDLER 1 
+    
+    
 ARG BASE_IMAGE_NAME
 RUN echo "Using base image \"${BASE_IMAGE_NAME}\" to build Python ${PYTHON_VERSION}"
 
@@ -116,5 +130,4 @@ RUN ln -s /python/bin/python3-config /usr/local/bin/python-config && \
 
 # copy in Python environment
 COPY --from=builder /python /python
-
 CMD ["python3"]
