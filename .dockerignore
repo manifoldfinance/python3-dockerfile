@@ -8,6 +8,8 @@ docker-compose.yml
 .gitattributes
 .gitignore
 
+build.sh
+
 docs/
 .DS_Store
 node_modules
