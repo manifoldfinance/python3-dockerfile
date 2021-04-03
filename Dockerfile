@@ -32,7 +32,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV GPG_KEY E3FF2839C048B25C084DEBE9B26995E310250568
 # https://github.com/pypa/get-pip
 ENV PYTHON_GET_PIP_URL https://bootstrap.pypa.io/get-pip.py
-ENV PYTHON_GET_PIP_SHA256 b3153ec0cf7b7bbf9556932aa37e4981c35dc2a2c501d70d91d2795aa532be79
+ENV PYTHON_GET_PIP_SHA256 e03eb8a33d3b441ff484c56a436ff10680479d4bd14e59268e67977ed40904de
 
 RUN set -ex && \
 	apt-get update && apt-get install --assume-yes --no-install-recommends \
